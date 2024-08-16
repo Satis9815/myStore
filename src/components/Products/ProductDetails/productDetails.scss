@@ -1,9 +1,9 @@
 .product__details__wrapper {
-    margin: 7rem 0;
+  margin: 7rem 0;
   .product__details__container {
     h3 {
-        font-size: 3.2rem;
-        color: var(--label-text-clr);
+      font-size: 3.2rem;
+      color: var(--label-text-clr);
     }
     .product {
       background: var(--card-bg-color);
@@ -24,7 +24,7 @@
         img {
           height: 100%;
           width: 100%;
-          object-fit: cover;
+          object-fit: contain;
         }
       }
       .card__content {
@@ -47,6 +47,38 @@
           padding-bottom: 1.5rem;
           border-bottom: 1px solid var(--divider-color);
           transition: none;
+        }
+        .category {
+          font-size: 1.4rem;
+          margin: 1rem 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          .ratings {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            .star {
+              display: flex;
+              span {
+                // color: var(--colorful-text);
+                color: #ffc97a;
+              }
+
+              svg {
+                height: 1.6rem;
+                width: 1.6rem;
+                fill: #ffc97a;
+                color: #ffc97a;
+              }
+            }
+            .total__count {
+              span {
+                color: var(--colorful-text);
+              }
+            }
+          }
         }
         .card__footer {
           margin-top: 1.5rem;

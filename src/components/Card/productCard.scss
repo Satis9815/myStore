@@ -26,7 +26,7 @@
     img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
   .card__content {
@@ -36,6 +36,43 @@
       font-weight: 500;
       font-size: 1.8rem;
       line-height: 2.4rem;
+    }
+    .category{
+        font-size: 1.4rem;
+        margin: 1rem 0;
+        // color: var(--colorful-text);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        .ratings{
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          .star{
+            display: flex;
+            span{
+              // color: var(--colorful-text);
+              color: #ffc97a;
+            }
+
+            svg{
+              height: 1.6rem;
+              width: 1.6rem;
+              fill: #ffc97a;
+              color: #ffc97a;
+
+            }
+          }
+          .total__count{
+            span{
+              color: var(--colorful-text);
+
+            }
+          }
+
+        }
+        
     }
     .description {
       display: block;

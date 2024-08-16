@@ -1,32 +1,46 @@
 import React from 'react';
-import "./productCard.scss";
+import './productCard.scss';
 import { useNavigate } from 'react-router-dom';
+import { Star } from 'react-feather';
+import { Product } from '../Products/types';
 
-const ProductCard = ({id}:{id:number}) => {
-  const navigate= useNavigate();
-  const navigateToProductDetails = (productId:number)=>{
-    navigate(`/product-details/${productId}`)
-  }
+const ProductCard = ({
+  id,
+  category,
+  description,
+  image,
+  title,
+  price,
+  rating,
+}: Product) => {
+  const navigate = useNavigate();
+  const navigateToProductDetails = (productId: number) => {
+    navigate(`/product-details/${productId}`);
+  };
   return (
-    <div onClick={()=>navigateToProductDetails(id)} className="card" >
+    <div onClick={() => navigateToProductDetails(id)} className="card">
       <div>
         <div className="card__image">
-          <img
-            src={
-              'https://static.toiimg.com/thumb/msid-84196313,width-400,resizemode-4/84196313.jpg'
-            }
-            alt="courseImg"
-          />
+          <img src={image} alt="courseImg" />
         </div>
       </div>
       <div className="card__content">
-        <h4 className="name">Product Strategy</h4>
-        <span className="description">
-          Thestibulum eget est nec ipsum asd as convallis adafol scelerisque a
-          sed mi lpa Morbi orbi asqw comm aafa.
-        </span>
+        <h4 className="name">{title}</h4>
+        <div className="category">
+          <div className="cantegory__name">{category}</div>
+          <div className="ratings">
+            <div className="star">
+              <Star />
+              <span>({rating.rate})</span>
+            </div>
+            <div className="total__count">
+              Total Rating: <span>{rating.count}</span>
+            </div>
+          </div>
+        </div>
+        <span className="description">{description}</span>
         <div className="card__footer">
-          Price <span>$600</span>
+          Price <span>${price}</span>
         </div>
       </div>
     </div>

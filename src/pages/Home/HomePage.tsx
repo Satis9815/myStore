@@ -1,6 +1,5 @@
 
 import Header from '../../components/Layout/Header/Header';
-
 import Products from '../../components/Products/Products';
 
 const HomePage = () => {
