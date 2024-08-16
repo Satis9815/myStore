@@ -5,6 +5,15 @@ body.light{
     --input-bg-color: #fff;
     --input-focus-color: #6f6ff1;
     --input-text-color: #667085;
+    --dropdown-bg-color:#fff;
+    --divider-color: #d6d6d6;
+    --transparent-border:#d6d6d6;
+    --card-bg-color:  #ffffff;
+    --colorful-text: #6f6ff1;
+    --text-color:#000000;
+    --btn-bg-hover-color:#7cc9fe;
+    --btn-bg-color:#6f6ff1;
+    --btn-text-color:#fff;
     color: #000;
     background-color: #fff;
     font-size: 16px;
@@ -17,6 +26,19 @@ body.dark{
     --input-bg-color: #132130;
     --input-focus-color: #d0d5dd;
     --input-text-color: #9095b1;
+    --dropdown-bg-color:#0a1a2c;
+    --divider-color: #303030;
+    --transparent-border:transparent;
+    --card-bg-color:  linear-gradient(
+        132.06deg,
+        rgba(255, 255, 255, 0.08) 2.05%,
+        rgba(82, 80, 80, 0.06) 68.52%
+      );
+      --colorful-text: #ffc97a;
+      --text-color: #d0d5dd;
+      --btn-bg-hover-color: #00cccc;
+      --btn-bg-color:#fec97c;
+      --btn-text-color:#000;
     color: #fff;
     background-color: #030e1a;
     font-size: 16px;

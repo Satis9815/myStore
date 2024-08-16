@@ -1,55 +1,71 @@
-.products__wrapper{
-    .products__container{
-        .product__heading{
+.products__wrapper {
+  margin: 7rem 0;
+  .products__container {
+    .product__heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h3 {
+        font-size: 2.4rem;
+      }
+      .right__heading__section {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        .search__input__wrapper {
+        }
+        .filter__icon {
+          position: relative;
+          .filter {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            h3{
-                font-size: 2.4rem;
-
-
+            svg {
+              height: 2rem;
+              width: 2rem;
             }
-            .right__heading__section{
-                display: flex;
-                gap: 1rem;
-                align-items: center;
-                .search__input__wrapper{
-
+          }
+          .filter__action__wrapper {
+            position: absolute;
+            width: 20rem;
+            background: var(--dropdown-bg-color);
+            border: 1px solid var(--transparent-border);
+            border-radius: 0.8rem;
+            padding: 2rem;
+            right: 0;
+            top: 3rem;
+            .filter__actions {
+              display: flex;
+              flex-direction: column;
+              p {
+                padding-bottom: 1rem;
+                margin-bottom: 1rem;
+                font-size: 1.6rem;
+                cursor: pointer;
+                border-bottom: 1px solid var(--divider-color);
+                &:last-child {
+                  border-bottom: none;
+                  margin-bottom: 0;
+                  padding-bottom: 0;
                 }
-                .filter__icon{
-                    position: relative;
-                    
-                    .filter{
-                        display: flex;
-                        svg{
-                            height: 2rem;
-                            width: 2rem;
-                        }
-
-                    }
-                    .filter__action__wrapper{
-                        position: absolute;
-                        width: 20rem;
-                        .filter__actions{
-                            display: flex;
-                            flex-direction: column;
-                            p{
-                                padding-bottom: 0.5rem;
-                                margin-bottom: 0.5rem;
-                            }
-                        }
-
-
-                    }
-
-                }
-
+              }
             }
+          }
+        }
+      }
+    }
+    .categories__wrapper{
+        margin: 2.4rem 0;
+        .categories{
+            display: flex;
+            gap: 1.5rem;
 
         }
-        .product__cards{
-
-        }
+ 
 
     }
+    .product__cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
 }
