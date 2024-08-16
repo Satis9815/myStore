@@ -1,5 +1,6 @@
 # To run locally do
 npm run install
+
 npm run dev
 
 # React + TypeScript + Vite
