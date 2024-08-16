@@ -9,12 +9,15 @@ import {
   useAppSelector,
 } from '../../../store/store';
 import { getASingleProduct } from '../../../store/features/Product/ProductApi';
+import Loader from '../../../shared/Loader/Loader';
 
 const ProductDetails = () => {
   const params = useParams();
   const { id } = params;
   const dispatch = useAppDispatch();
-  const productState:any = useAppSelector((store: RootStore) => store.ProductSlice);
+  const productState: any = useAppSelector(
+    (store: RootStore) => store.ProductSlice
+  );
 
   useEffect(() => {
     if (id) {
@@ -34,7 +37,8 @@ const ProductDetails = () => {
               <div className="card__image">
                 <img
                   src={
-                    productState?.single_product?.image || 'https://static.toiimg.com/thumb/msid-84196313,width-400,resizemode-4/84196313.jpg'
+                    productState?.single_product?.image ||
+                    'https://static.toiimg.com/thumb/msid-84196313,width-400,resizemode-4/84196313.jpg'
                   }
                   alt="courseImg"
                 />
@@ -42,19 +46,24 @@ const ProductDetails = () => {
               <div className="card__content">
                 <h4 className="name">{productState?.single_product?.title}</h4>
                 <div className="category">
-                  <div className="cantegory__name">{productState?.single_product?.category}</div>
+                  <div className="cantegory__name">
+                    {productState?.single_product?.category}
+                  </div>
                   <div className="ratings">
                     <div className="star">
                       <Star />
-                      <span>({productState?.single_product?.rating?.rate})</span>
+                      <span>
+                        ({productState?.single_product?.rating?.rate})
+                      </span>
                     </div>
                     <div className="total__count">
-                      Total Rating: <span>{productState?.single_product?.rating?.count}</span>
+                      Total Rating:{' '}
+                      <span>{productState?.single_product?.rating?.count}</span>
                     </div>
                   </div>
                 </div>
                 <span className="description">
-                {productState?.single_product.description}
+                  {productState?.single_product.description}
                 </span>
                 <div className="card__footer">
                   Price <span>${productState?.single_product?.price}</span>
@@ -62,6 +71,8 @@ const ProductDetails = () => {
               </div>
             </>
           )}
+          {productState?.is_loading.loading &&
+            !productState.is_success.loading && <Loader text={'Loading...'} />}
         </div>
       </div>
     </div>

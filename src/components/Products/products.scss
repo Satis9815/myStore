@@ -18,6 +18,7 @@
           position: relative;
           .filter {
             display: flex;
+            cursor: pointer;
             svg {
               height: 2rem;
               width: 2rem;
@@ -52,15 +53,22 @@
         }
       }
     }
-    .categories__wrapper{
-        margin: 2.4rem 0;
-        .categories{
-            display: flex;
-            gap: 1.5rem;
-
+    .categories__wrapper {
+      margin: 2.4rem 0;
+      .categories {
+        display: flex;
+        gap: 1.5rem;
+        .clear__button {
+          color: #f04438;
+          padding: 0.8rem 2.5rem;
+          border-radius: 0.8rem;
+          font-size: 1.6rem;
+          cursor: pointer;
+          outline: none;
+          border: 1px solid var( --transparent-border);
+          background: transparent;
         }
- 
-
+      }
     }
     .product__cards {
       display: grid;

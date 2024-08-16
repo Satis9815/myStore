@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow-restricted-names */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
@@ -32,4 +33,36 @@ export const getASingleProduct = createAsyncThunk(
     }
   }
 );
+export const getCategories = createAsyncThunk(
+  'getCategories',
+  async (undefined, { rejectWithValue }) => {
+    try {
+      const res = await axios.get(`${BASE_URL}/products/categories`);
+      return res.data;
+    } catch (error: any) {
+      if (!error.response) {
+        throw error;
+      }
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const getProductByCategory = createAsyncThunk(
+  'getProductByCategory',
+  async ({category}:{category:string}, { rejectWithValue }) => {
+    try {
+      const encodedCategory = encodeURIComponent(category);
+      const res = await axios.get(`${BASE_URL}/products/category/${encodedCategory}`);
+      return res.data;
+    } catch (error: any) {
+      if (!error.response) {
+        throw error;
+      }
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+
 
