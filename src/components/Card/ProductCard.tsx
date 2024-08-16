@@ -21,7 +21,7 @@ const ProductCard = ({
     <div onClick={() => navigateToProductDetails(id)} className="card">
       <div>
         <div className="card__image">
-          <img src={image} alt="courseImg" />
+          <img src={image} alt="Product Image" />
         </div>
       </div>
       <div className="card__content">

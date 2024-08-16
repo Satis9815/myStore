@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Star } from 'react-feather';
+import { ChevronLeft, Star } from 'react-feather';
 import './productDetails.scss';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import {
   RootStore,
@@ -13,6 +13,7 @@ import Loader from '../../../shared/Loader/Loader';
 
 const ProductDetails = () => {
   const params = useParams();
+  const navigate = useNavigate();
   const { id } = params;
   const dispatch = useAppDispatch();
   const productState: any = useAppSelector(
@@ -25,12 +26,15 @@ const ProductDetails = () => {
     }
   }, [id]);
 
-  console.log(productState.single_product);
 
   return (
     <div className="product__details__wrapper">
       <div className="product__details__container layout__width">
-        <h3>Product Details</h3>
+        <h3>
+          <span onClick={()=>navigate("/")}><ChevronLeft/></span> 
+          Product Details
+
+        </h3>
         <div className="product">
           {productState?.single_product && (
             <>
@@ -40,7 +44,7 @@ const ProductDetails = () => {
                     productState?.single_product?.image ||
                     'https://static.toiimg.com/thumb/msid-84196313,width-400,resizemode-4/84196313.jpg'
                   }
-                  alt="courseImg"
+                  alt="Product Image"
                 />
               </div>
               <div className="card__content">

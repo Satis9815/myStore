@@ -64,5 +64,19 @@ export const getProductByCategory = createAsyncThunk(
   }
 );
 
+export const getProductByAscOrDesc = createAsyncThunk(
+  'getProductByAscOrDesc',
+  async ({sortBy}:{sortBy:string}, { rejectWithValue }) => {
+    try {
+      const res = await axios.get(`${BASE_URL}/products?sort=${sortBy}`);
+      return res.data;
+    } catch (error: any) {
+      if (!error.response) {
+        throw error;
+      }
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
 

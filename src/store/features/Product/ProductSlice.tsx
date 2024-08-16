@@ -5,10 +5,11 @@ import {
   getAllProducts,
   getASingleProduct,
   getCategories,
+  getProductByAscOrDesc,
   getProductByCategory,
 } from './ProductApi';
 
-const initialState = {
+const initialState: any = {
   is_loading: {
     loading: false,
   },
@@ -23,7 +24,18 @@ const initialState = {
 const productSlice = createSlice({
   name: 'productSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    searchProducts: (state: any, { payload }: PayloadAction<any>) => {
+      if (payload.length > 1) {
+        state.all_products = state.temp_products.filter((prod: any) =>
+          prod.title.toLowerCase().includes(payload.toLowerCase())
+        );
+
+      } else {
+        state.all_products = state.temp_products;
+      }
+    },
+  },
   extraReducers: (builder) => {
     //GET ALL PRODUCT DATA
     builder.addCase(getAllProducts.pending, (state) => {
@@ -35,6 +47,7 @@ const productSlice = createSlice({
       (state, { payload }: PayloadAction<any>) => {
         state.is_loading.loading = false;
         state.is_success.loading = true;
+        state.temp_products = payload;
         state.all_products = payload;
       }
     );
@@ -53,7 +66,6 @@ const productSlice = createSlice({
       (state, { payload }: PayloadAction<any>) => {
         state.is_loading.loading = false;
         state.is_success.loading = true;
-        console.log(payload);
         state.single_product = payload;
       }
     );
@@ -82,6 +94,7 @@ const productSlice = createSlice({
       (state, { payload }: PayloadAction<any>) => {
         state.is_loading.loading = false;
         state.is_success.loading = true;
+        state.temp_products = payload;
         state.all_products = payload;
       }
     );
@@ -89,7 +102,28 @@ const productSlice = createSlice({
       state.is_loading.loading = false;
       state.is_success.loading = false;
     });
+
+    //GET PRODUCT BY SORT
+    builder.addCase(getProductByAscOrDesc.pending, (state) => {
+      state.is_loading.loading = true;
+      state.is_success.loading = false;
+    });
+    builder.addCase(
+      getProductByAscOrDesc.fulfilled,
+      (state, { payload }: PayloadAction<any>) => {
+        state.is_loading.loading = false;
+        state.is_success.loading = true;
+        state.temp_products = payload;
+        state.all_products = payload;
+      }
+    );
+    builder.addCase(getProductByAscOrDesc.rejected, (state) => {
+      state.is_loading.loading = false;
+      state.is_success.loading = false;
+    });
   },
 });
 
 export default productSlice.reducer;
+
+export const { searchProducts } = productSlice.actions;

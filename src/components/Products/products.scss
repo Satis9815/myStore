@@ -1,63 +1,13 @@
 .products__wrapper {
   margin: 7rem 0;
   .products__container {
-    .product__heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      h3 {
-        font-size: 2.4rem;
-      }
-      .right__heading__section {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        .search__input__wrapper {
-        }
-        .filter__icon {
-          position: relative;
-          .filter {
-            display: flex;
-            cursor: pointer;
-            svg {
-              height: 2rem;
-              width: 2rem;
-            }
-          }
-          .filter__action__wrapper {
-            position: absolute;
-            width: 20rem;
-            background: var(--dropdown-bg-color);
-            border: 1px solid var(--transparent-border);
-            border-radius: 0.8rem;
-            padding: 2rem;
-            right: 0;
-            top: 3rem;
-            .filter__actions {
-              display: flex;
-              flex-direction: column;
-              p {
-                padding-bottom: 1rem;
-                margin-bottom: 1rem;
-                font-size: 1.6rem;
-                cursor: pointer;
-                border-bottom: 1px solid var(--divider-color);
-                &:last-child {
-                  border-bottom: none;
-                  margin-bottom: 0;
-                  padding-bottom: 0;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
     .categories__wrapper {
       margin: 2.4rem 0;
       .categories {
         display: flex;
         gap: 1.5rem;
+        flex-wrap: wrap;
+        // overflow-x: auto;
         .clear__button {
           color: #f04438;
           padding: 0.8rem 2.5rem;
@@ -74,6 +24,20 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
+      @media screen and (max-width:1180px) {
+        grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+        
+      }
+    }
+    .list__items{
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .product__notfound{
+      font-size: 2.4rem;
+      text-align: center;
+      margin-top: 18rem;  
     }
   }
 }

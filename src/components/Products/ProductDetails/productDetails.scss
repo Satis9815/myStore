@@ -4,6 +4,15 @@
     h3 {
       font-size: 3.2rem;
       color: var(--label-text-clr);
+      span{
+        cursor: pointer;
+        svg{
+          height: 2.4rem;
+          width: 2.4rem;
+          
+
+        }
+      }
     }
     .product {
       background: var(--card-bg-color);
