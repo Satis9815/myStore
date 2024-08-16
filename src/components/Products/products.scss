@@ -1,0 +1,55 @@
+.products__wrapper{
+    .products__container{
+        .product__heading{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h3{
+                font-size: 2.4rem;
+
+
+            }
+            .right__heading__section{
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                .search__input__wrapper{
+
+                }
+                .filter__icon{
+                    position: relative;
+                    
+                    .filter{
+                        display: flex;
+                        svg{
+                            height: 2rem;
+                            width: 2rem;
+                        }
+
+                    }
+                    .filter__action__wrapper{
+                        position: absolute;
+                        width: 20rem;
+                        .filter__actions{
+                            display: flex;
+                            flex-direction: column;
+                            p{
+                                padding-bottom: 0.5rem;
+                                margin-bottom: 0.5rem;
+                            }
+                        }
+
+
+                    }
+
+                }
+
+            }
+
+        }
+        .product__cards{
+
+        }
+
+    }
+}

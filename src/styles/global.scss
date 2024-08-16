@@ -1,0 +1,20 @@
+@import "./theme.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Inter",-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+.layout__width{
+    width: 118rem;
+    max-width: 90%;
+    margin: 0 auto;
+}
