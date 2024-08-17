@@ -1,4 +1,20 @@
 # To run locally do
+Before you begin, ensure you have met the following requirements:
+
+Node.js (version 20.10.0 or higher)
+
+npm (version 10.2.3 or higher) 
+
+Clone the repository to your local machine:
+
+https://github.com/Satis9815/myStore.git
+
+Navigate to the project directory
+
+cd myStore
+
+Then run below commands
+
 npm run install
 
 npm run dev
